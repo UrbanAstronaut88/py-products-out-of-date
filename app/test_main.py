@@ -25,7 +25,7 @@ def test_outdated_products() -> None:
 
     # Маскируем datetime.date.today() для тестирования
     with patch("datetime.date") as mock_date:
-        # Устанавливаем текущую дату на 2 февраля 2022 года
+        # мокаем текущую дату на 2 февраля 2022 года
         mock_date.today.return_value = date(2022, 2, 2)
 
         # Проверяем результат
@@ -47,7 +47,7 @@ def test_outdated_products_no_expired() -> None:
     ]
 
     with patch("datetime.date") as mock_date:
-        # Устанавливаем текущую дату на 1 февраля 2022 года
+        # мокаем текущую дату на 1 февраля 2022 года
         mock_date.today.return_value = date(2022, 2, 1)
 
         # Проверяем результат
