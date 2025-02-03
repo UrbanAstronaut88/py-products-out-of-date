@@ -80,7 +80,7 @@ def test_expiration_day_today_not_outdated() -> None:
     products: List[Dict[str, object]] = [
         {
             "name": "salmon",
-            "expiration_date": date(2022, 2, 2),  # Срок годности истекает сегодня
+            "expiration_date": date(2022, 2, 2),
             "price": 600
         }
     ]
