@@ -74,3 +74,20 @@ def test_outdated_products_all_expired() -> None:
 
         # Проверяем результат
         assert outdated_products(products) == ["salmon", "chicken"]
+
+
+def test_expiration_day_today_not_outdated() -> None:
+    products: List[Dict[str, object]] = [
+        {
+            "name": "salmon",
+            "expiration_date": date(2022, 2, 2),  # Срок годности истекает сегодня
+            "price": 600
+        }
+    ]
+
+    with patch("datetime.date") as mock_date:
+        # Устанавливаем текущую дату на 2 февраля 2022 года
+        mock_date.today.return_value = date(2022, 2, 2)
+
+        # Проверяем результат
+        assert outdated_products(products) == []
